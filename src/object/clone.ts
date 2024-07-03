@@ -1,21 +1,9 @@
-import { isPrimitive } from 'radashi'
-
 /**
  * Creates a shallow copy of the given obejct/value.
  * @param {*} obj value to clone @returns {*} shallow clone of the
  * given value
  */
-export function clone<T>(obj: T): T {
-  // Primitive values do not need cloning.
-  if (isPrimitive(obj)) {
-    return obj
-  }
-
-  // Binding a function to an empty object creates a copy function.
-  if (typeof obj === 'function') {
-    return obj.bind({})
-  }
-
+export function clone<T extends object>(obj: T): T {
   const proto = Object.getPrototypeOf(obj)
   const newObj =
     typeof proto?.constructor === 'function'
