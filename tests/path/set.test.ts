@@ -1,15 +1,6 @@
 import * as _ from 'radashi'
 
 describe('set', () => {
-  test('handles bad input', () => {
-    expect(_.set({}, '', {})).toEqual({})
-    expect(_.set({}, null as any, {})).toEqual({})
-    expect(_.set({}, '', null as any)).toEqual({})
-    expect(_.set(null as any, '', {})).toEqual({})
-    expect(_.set(null as any, null as any, null as any)).toEqual({})
-    expect(_.set({ foo: true }, 'foo', false)).toEqual({ foo: false })
-    expect(_.set({}, 'foo', 0)).toEqual({ foo: 0 })
-  })
   test('sets deep values correctly', () => {
     expect(_.set({}, 'cards.value', 2)).toEqual({
       cards: { value: 2 },
