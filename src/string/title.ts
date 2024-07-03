@@ -7,10 +7,7 @@ import { capitalize } from 'radashi'
  * Boom' title('root-hook') -> 'Root Hook' title('queryItems') ->
  * 'Query Items'
  */
-export function title(str: string | null | undefined): string {
-  if (!str) {
-    return ''
-  }
+export function title(str: string): string {
   return str
     .split(/(?=[A-Z])|[\.\-\s_]/)
     .map(s => s.trim())

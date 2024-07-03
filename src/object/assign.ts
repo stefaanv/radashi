@@ -9,9 +9,6 @@ export function assign<X extends Record<string | symbol | number, any>>(
   initial: X,
   override: X,
 ): X {
-  if (!initial || !override) {
-    return initial ?? override ?? {}
-  }
   const proto = Object.getPrototypeOf(initial)
   const merged = proto
     ? { ...initial }

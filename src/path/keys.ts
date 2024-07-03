@@ -11,9 +11,6 @@ import { isArray, isPlainObject } from 'radashi'
  * ```
  */
 export function keys(value: object): string[] {
-  if (!value) {
-    return []
-  }
   const keys: string[] = []
   const keyPath: (string | number)[] = []
   const recurse = (value: any) => {

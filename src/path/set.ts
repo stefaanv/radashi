@@ -14,27 +14,20 @@ export function set<T extends object, K>(
   path: string,
   value: K,
 ): T {
-  if (!initial) {
-    return {} as T
-  }
-  if (!path || value === undefined) {
+  if (value === undefined) {
     return initial
   }
-
   // NOTE: One day, when structuredClone has more compatability use it
   // to clone the value
   // https://developer.mozilla.org/en-US/docs/Web/API/structuredClone
   const root: any = clone(initial)
   const keys = path.match(/[^.[\]]+/g)
-  if (keys) {
-    keys.reduce(
-      (object, key, i) =>
-        i < keys.length - 1
-          ? (object[key] ??= isIntString(keys[i + 1]) ? [] : {})
-          : (object[key] = value),
-      root,
-    )
-  }
-
+  keys?.reduce(
+    (object, key, i) =>
+      i < keys.length - 1
+        ? (object[key] ??= isIntString(keys[i + 1]) ? [] : {})
+        : (object[key] = value),
+    root,
+  )
   return root
 }

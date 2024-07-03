@@ -16,14 +16,8 @@ export function replaceOrAppend<T>(
   newItem: T,
   match: (a: T, idx: number) => boolean,
 ): T[] {
-  if (!array && !newItem) {
-    return []
-  }
-  if (!newItem) {
+  if (newItem === undefined) {
     return [...array]
-  }
-  if (!array) {
-    return [newItem]
   }
   for (let idx = 0; idx < array.length; idx++) {
     const item = array[idx]

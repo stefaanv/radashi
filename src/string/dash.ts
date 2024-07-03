@@ -7,17 +7,11 @@ import { capitalize } from 'radashi'
  * 'va-va-voom' dash('helloWord') -> 'hello-word'
  */
 export function dash(str: string): string {
-  const parts =
-    str
-      ?.replace(/([A-Z])+/g, capitalize)
-      ?.split(/(?=[A-Z])|[\.\-\s_]/)
-      .map(x => x.toLowerCase()) ?? []
-  if (parts.length === 0) {
-    return ''
-  }
-  if (parts.length === 1) {
-    return parts[0]
-  }
+  const parts = str
+    .replace(/([A-Z])+/g, capitalize)
+    .split(/(?=[A-Z])|[\.\-\s_]/)
+    .map(x => x.toLowerCase())
+
   return parts.reduce((acc, part) => {
     return `${acc}-${part.toLowerCase()}`
   })

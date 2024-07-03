@@ -17,9 +17,6 @@ export function select<T, U>(
   mapper: (item: T, index: number) => U,
   condition?: (item: T, index: number) => boolean,
 ): U[] {
-  if (!array) {
-    return []
-  }
   let mapped: U
   return array.reduce((acc, item, index) => {
     if (condition) {
