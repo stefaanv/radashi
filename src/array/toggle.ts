@@ -25,7 +25,7 @@ export function toggle<T>(
    * Converts an item of type T item into a value that can be checked
    * for equality
    */
-  toKey?: null | ((item: T, idx: number) => number | string | symbol),
+  toKey?: ((item: T, idx: number) => number | string | symbol) | null,
   options?: {
     strategy?: 'prepend' | 'append'
   },

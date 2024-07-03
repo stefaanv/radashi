@@ -1,3 +1,6 @@
+// biome-ignore lint/complexity/noBannedTypes: {} represents “all types but null/undefined”
+type Defined<T> = T & ({} | null)
+
 /**
  * Replace an element in an array with a new item without modifying
  * the array and return the new value
@@ -7,15 +10,15 @@
  * // [1, 4, 3]
  * ```
  */
-export function replace<T>(
+export function replace<T, U>(
   array: readonly T[],
-  newItem: T,
+  newItem: U,
   match: (item: T, idx: number) => boolean,
-): T[] {
+): (T | Defined<U>)[] {
   if (newItem === undefined) {
     return [...array]
   }
-  const out = array.slice()
+  const out = array.slice() as (T | Defined<U>)[]
   for (let index = 0; index < array.length; index++) {
     if (match(array[index], index)) {
       out[index] = newItem
