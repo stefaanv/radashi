@@ -1,4 +1,4 @@
-import { random } from 'radashi'
+import { randomInt } from 'radashi'
 
 /**
  * Draw a random item from a list. Returns null if the list is empty
@@ -8,6 +8,6 @@ export function draw<T>(array: readonly T[]): T | null {
   if (max === 0) {
     return null
   }
-  const index = random(0, max - 1)
+  const index = randomInt(0, max - 1)
   return array[index]
 }
