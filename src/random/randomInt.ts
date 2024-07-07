@@ -19,3 +19,8 @@ export function randomInt(min: number, max: number): number {
     ? Math.floor(randomNumber(min, max + 1))
     : randomInt(max, min)
 }
+
+/**
+ * @deprecated Use `randomInt` instead.
+ */
+export const random: typeof randomInt = randomInt
