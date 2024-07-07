@@ -53,6 +53,10 @@ export * from './curry/partob.ts'
 export * from './curry/proxied.ts'
 export * from './curry/throttle.ts'
 
+export * from './iterable/reduceIterable.ts'
+export * from './iterable/searchIterable.ts'
+export * from './iterable/toIterable.ts'
+
 export * from './number/inRange.ts'
 export * from './number/round.ts'
 export * from './number/toFloat.ts'
