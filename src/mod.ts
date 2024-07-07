@@ -82,8 +82,6 @@ export * from './object/upperize.ts'
 export * from './random/draw.ts'
 export * from './random/randomFloat.ts'
 export * from './random/randomInt.ts'
-export * from './random/randomSecureFloat.ts'
-export * from './random/randomSecureInt.ts'
 export * from './random/shuffle.ts'
 export * from './random/uid.ts'
 
