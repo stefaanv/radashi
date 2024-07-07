@@ -1,12 +1,12 @@
-import { randomFloat } from 'radashi'
+import { randomNumber } from 'radashi'
 
 /**
  * Generates a random integer between `min` and `max`. The range is
  * inclusive on both ends, so `randomInt(0, 1)` will return 0 or 1.
  *
- * This uses `Math.random` for randomness, so it's not
- * cryptographically secure. If you need cryptographically secure
- * randomness, use `randomSecureInt` instead.
+ * Note: This uses `Math.random` for randomness, so it's not
+ * cryptographically secure. It's also biased (some results are more
+ * likely than others). Most of the time, this won't be a problem.
  *
  * ```ts
  * randomInt(0, 1) // 0
@@ -15,5 +15,7 @@ import { randomFloat } from 'radashi'
  * ```
  */
 export function randomInt(min: number, max: number): number {
-  return randomFloat(min, max + 1) | 0
+  return min <= max
+    ? Math.floor(randomNumber(min, max + 1))
+    : randomInt(max, min)
 }
