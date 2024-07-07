@@ -1,9 +1,8 @@
 import * as _ from 'radashi'
 import { bench } from 'vitest'
 
-describe('randomFloat', () => {
+describe('randomNumber', () => {
   bench('with no arguments', () => {
-    _.randomFloat()
+    _.randomNumber()
   })
 })
-
