@@ -2,11 +2,8 @@ import * as _ from 'radashi'
 
 describe('randomNumber', () => {
   test('basic functionality', () => {
-    const result = _.randomNumber(1, 10)
-    expect(result).toBeGreaterThanOrEqual(1)
-    expect(result).toBeLessThan(10)
-    const result2 = _.randomNumber(1, 10)
-    expect(result).not.toEqual(result2)
+    const numbers = _.list(0, 1000, () => _.randomNumber(0, 1))
+    expect(numbers.every(n => n >= 0 && n < 1)).toBe(true)
   })
   test('should handle negative numbers', () => {
     const result = _.randomNumber(-10, -1)
